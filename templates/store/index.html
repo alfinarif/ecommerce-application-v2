@@ -1,0 +1,312 @@
+{% extends 'base.html' %}
+{% block title %} E-Store || CleaverCode {% endblock title %}
+{% block body %}
+
+        <main class="main">
+
+
+            <div class="intro-slider-container mb-5">
+                <div class="intro-slider owl-carousel owl-theme owl-nav-inside owl-light" data-toggle="owl" 
+                    data-owl-options='{
+                        "dots": true,
+                        "nav": false, 
+                        "responsive": {
+                            "1200": {
+                                "nav": true,
+                                "dots": false
+                            }
+                        }
+                    }'>
+
+
+            {% for banner in banners %}
+
+                    <div class="intro-slide" style="background-image: url({{banner.image.url}});">
+                        <div class="container intro-content">
+                            <div class="row justify-content-end">
+                                <div class="col-auto col-sm-7 col-md-6 col-lg-5">
+                                    <h3 class="intro-subtitle text-primary">New Arrival</h3><!-- End .h3 intro-subtitle -->
+                                    <h1 class="intro-title"> {{banner.product.name}} </h1><!-- End .intro-title -->
+
+                                    <div class="intro-price">
+                                        <sup>Today:</sup>
+                                        <span class="text-primary">
+                                            ${{banner.product.price}}
+                                        </span>
+                                    </div><!-- End .intro-price -->
+
+                                    <a href="category.html" class="btn btn-primary btn-round">
+                                        <span>Shop More</span>
+                                        <i class="icon-long-arrow-right"></i>
+                                    </a>
+                                </div><!-- End .col-md-6 offset-md-6 -->
+                            </div><!-- End .row -->
+                        </div><!-- End .intro-content -->
+                    </div><!-- End .intro-slide -->
+
+                {% endfor %}
+
+                </div><!-- End .intro-slider owl-carousel owl-simple -->
+
+                <span class="slider-loader"></span><!-- End .slider-loader -->
+            </div><!-- End .intro-slider-container -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <div class="container">
+                <h2 class="title text-center mb-4">Explore Popular Categories</h2><!-- End .title text-center -->
+                
+                <div class="cat-blocks-container">
+                    <div class="row">
+                        
+
+
+                        <div class="col-6 col-sm-4 col-lg-2">
+                            <a href="category.html" class="cat-block">
+                                <figure>
+                                    <span>
+                                        <img src="/static/assets/images/demos/demo-4/cats/6.png" alt="Category image">
+                                    </span>
+                                </figure>
+
+                                <h3 class="cat-block-title">Smart Watches</h3><!-- End .cat-block-title -->
+                            </a>
+                        </div><!-- End .col-sm-4 col-lg-2 -->
+
+
+
+
+                    </div><!-- End .row -->
+                </div><!-- End .cat-blocks-container -->
+            </div><!-- End .container -->
+
+
+
+
+
+            <div class="mb-4"></div><!-- End .mb-4 -->
+
+
+
+            <div class="mb-3"></div><!-- End .mb-5 -->
+
+            <div class="container new-arrivals">
+                <div class="heading heading-flex mb-3">
+                    <div class="heading-left">
+                        <h2 class="title">New Arrivals</h2><!-- End .title -->
+                    </div><!-- End .heading-left -->
+                </div><!-- End .heading -->
+
+
+
+                <div class="tab-content tab-content-carousel just-action-icons-sm">
+                    <div class="tab-pane p-0 fade show active" id="new-all-tab" role="tabpanel" aria-labelledby="new-all-link">
+                        <div class="owl-carousel owl-full carousel-equal-height carousel-with-shadow" data-toggle="owl" 
+                            data-owl-options='{
+                                "nav": true, 
+                                "dots": true,
+                                "margin": 20,
+                                "loop": false,
+                                "responsive": {
+                                    "0": {
+                                        "items":2
+                                    },
+                                    "480": {
+                                        "items":2
+                                    },
+                                    "768": {
+                                        "items":3
+                                    },
+                                    "992": {
+                                        "items":4
+                                    },
+                                    "1200": {
+                                        "items":5
+                                    }
+                                }
+                            }'>
+
+
+
+                            
+
+                            
+
+                           
+
+                            
+
+                        {% for product in products %}
+
+                            <div class="product product-2">
+                                <figure class="product-media">
+                                    <span class="product-label label-circle label-top">Top</span>
+                                    <a href="product.html">
+                                        <img src="{{product.image.url}}" alt="Product image" class="product-image">
+                                    </a>
+
+                                    <div class="product-action-vertical">
+                                        <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist"></a>
+                                    </div><!-- End .product-action -->
+
+                                    <div class="product-action">
+                                        <a href="#" class="btn-product btn-cart" title="Add to cart"><span>add to cart</span></a>
+                                    </div><!-- End .product-action -->
+                                </figure><!-- End .product-media -->
+
+                                <div class="product-body">
+                                    <div class="product-cat">
+                                        <a href="#">{{product.category}}</a>
+                                    </div><!-- End .product-cat -->
+                                    <h3 class="product-title"><a href="{{product.get_product_url}}">{{product.name}}</a></h3><!-- End .product-title -->
+                                    <div class="product-price">
+                                        ${{product.price}}
+                                    </div>
+                                    {% if product.old_price %}
+                                    <div class="product-price">
+                                        <del>${{product.old_price}}</del>
+                                    </div>
+                                    {% endif %}
+                                    <div class="ratings-container">
+                                        <div class="ratings">
+                                            <div class="ratings-val" style="width: 100%;"></div><!-- End .ratings-val -->
+                                        </div><!-- End .ratings -->
+                                        <span class="ratings-text">( 4 Reviews )</span>
+                                    </div><!-- End .rating-container -->
+                                </div><!-- End .product-body -->
+                            </div><!-- End .product -->
+
+                        {% endfor %}
+
+
+
+
+
+                        </div><!-- End .owl-carousel -->
+                    </div><!-- .End .tab-pane -->
+                </div><!-- End .tab-content -->
+            </div><!-- End .container -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <div class="mb-5"></div><!-- End .mb-5 -->
+
+            <div class="container for-you">
+                <div class="heading heading-flex mb-3">
+                    <div class="heading-left">
+                        <h2 class="title">Recommendation For You</h2><!-- End .title -->
+                    </div><!-- End .heading-left -->
+
+                   <div class="heading-right">
+                        <a href="#" class="title-link">View All Recommendadion <i class="icon-long-arrow-right"></i></a>
+                   </div><!-- End .heading-right -->
+                </div><!-- End .heading -->
+
+
+
+                <div class="products">
+                    <div class="row justify-content-center">
+                        
+
+                        
+
+                        
+
+                        
+
+                        
+
+                        
+
+                        <div class="col-6 col-md-4 col-lg-3">
+                            <div class="product product-2">
+                                <figure class="product-media">
+                                    <span class="product-label label-circle label-sale">Sale</span>
+                                    <a href="product.html">
+                                        <img src="/static/assets/images/demos/demo-4/products/product-16.jpg" alt="Product image" class="product-image">
+                                    </a>
+
+                                    <div class="product-action-vertical">
+                                        <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist"></a>
+                                    </div><!-- End .product-action -->
+
+                                    <div class="product-action">
+                                        <a href="#" class="btn-product btn-cart" title="Add to cart"><span>add to cart</span></a>
+                                        <a href="popup/quickView.html" class="btn-product btn-quickview" title="Quick view"><span>quick view</span></a>
+                                    </div><!-- End .product-action -->
+                                </figure><!-- End .product-media -->
+
+                                <div class="product-body">
+                                    <div class="product-cat">
+                                        <a href="#">Audio</a>
+                                    </div><!-- End .product-cat -->
+                                    <h3 class="product-title"><a href="product.html">WONDERBOOM Portable Bluetooth Speaker</a></h3><!-- End .product-title -->
+                                    <div class="product-price">
+                                        <span class="new-price">$99.99</span>
+                                        <span class="old-price">Was $129.99</span>
+                                    </div><!-- End .product-price -->
+                                    <div class="ratings-container">
+                                        <div class="ratings">
+                                            <div class="ratings-val" style="width: 40%;"></div><!-- End .ratings-val -->
+                                        </div><!-- End .ratings -->
+                                        <span class="ratings-text">( 4 Reviews )</span>
+                                    </div><!-- End .rating-container -->
+
+                                    <div class="product-nav product-nav-dots">
+                                        <a href="#" class="active" style="background: #666666;"><span class="sr-only">Color name</span></a>
+                                        <a href="#" style="background: #ff887f;"><span class="sr-only">Color name</span></a>
+                                        <a href="#" style="background: #6699cc;"><span class="sr-only">Color name</span></a>
+                                        <a href="#" style="background: #f3dbc1;"><span class="sr-only">Color name</span></a>
+                                        <a href="#" style="background: #eaeaec;"><span class="sr-only">Color name</span></a>
+                                    </div><!-- End .product-nav -->
+                                </div><!-- End .product-body -->
+                            </div><!-- End .product -->
+
+                        </div><!-- End .col-sm-6 col-md-4 col-lg-3 -->
+
+
+
+
+
+                    </div><!-- End .row -->
+                </div><!-- End .products -->
+            </div><!-- End .container -->
+
+            <div class="mb-4"></div><!-- End .mb-4 -->
+
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
