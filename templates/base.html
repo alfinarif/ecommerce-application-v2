@@ -7,6 +7,7 @@
     {% load category %}
     {% load cart_product %}
     {% load logoInfo %}
+    {% load notification %}
     {% load static %}
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -110,14 +111,20 @@
                             </a>
                         </div><!-- End .compare-dropdown -->
 
+
+
+
+
                         <div class="dropdown cart-dropdown">
                             <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
                                 <div class="icon">
                                     <i class="icon-shopping-cart"></i>
                                     {% if request.user.is_authenticated %}
-                                    <span class="cart-count">{{request.user|cart_count}}</span>
+                                    {% if request.user|cart_count %}
+                                        <span class="cart-count">{{request.user|cart_count}}</span>
                                     {% else %}
-                                     <span class="cart-count">0</span>
+                                        <span class="cart-count">0</span>
+                                    {% endif %}
                                     {% endif %}
                                 </div>
                                 <p>Cart</p>
@@ -170,6 +177,49 @@
                                 </div><!-- End .dropdown-cart-total -->
                             </div><!-- End .dropdown-menu -->
                         </div><!-- End .cart-dropdown -->
+
+
+
+
+
+
+
+
+
+                        <div class="dropdown cart-dropdown">
+                            <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
+                                <div class="icon">
+                                    <i class="icon-shopping-cart"></i>
+                                        <span class="cart-count">0</span>
+                                </div>
+                                <p>Notification</p>
+                            </a>
+
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <div class="dropdown-cart-products">
+                                    {% for notification in request.user|notifications %}
+                                    <div class="product">
+                                        <div class="product-cart-details">
+                                            <h4 class="product-title">
+                                                <a href="product.html">{{notification.message}}</a>
+                                            </h4>
+                                        </div><!-- End .product-cart-details -->
+                                        <a href="#" class="btn-remove" title="Remove Product"><i class="icon-close"></i></a>
+                                    </div><!-- End .product -->
+                                    {% endfor %}
+
+                                </div><!-- End .cart-product --> 
+                            </div><!-- End .dropdown-menu -->
+
+
+                        </div><!-- End .cart-dropdown -->
+
+
+
+            
+
+                
+                    </div><!-- End .cart-dropdown -->
                     </div><!-- End .header-right -->
 
 

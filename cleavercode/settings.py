@@ -17,6 +17,7 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 AUTH_USER_MODEL = 'account.User'
+AUTHENTICATION_BACKENDS = ['account.backend.UsernameOrEmail']
 
 # Application definition
 
@@ -33,6 +34,7 @@ INSTALLED_APPS = [
     'order',
     'coupon',
     'payment',
+    'notification',
 
 ]
 
