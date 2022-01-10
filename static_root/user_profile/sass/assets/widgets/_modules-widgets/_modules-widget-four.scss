@@ -1,0 +1,129 @@
+/*
+    ====================
+        Visitors by Browser
+    ====================
+*/
+
+.widget-four {
+  position: relative;
+  background: $m-color_10;
+  padding: 20px;
+  border-radius: 6px;
+  height: 100%;
+  box-shadow: none;
+  box-shadow: 0 0.1px 0px rgba(0, 0, 0, 0.002), 0 0.2px 0px rgba(0, 0, 0, 0.003), 0 0.4px 0px rgba(0, 0, 0, 0.004), 0 0.6px 0px rgba(0, 0, 0, 0.004), 0 0.9px 0px rgba(0, 0, 0, 0.005), 0 1.2px 0px rgba(0, 0, 0, 0.006), 0 1.8px 0px rgba(0, 0, 0, 0.006), 0 2.6px 0px rgba(0, 0, 0, 0.007), 0 3.9px 0px rgba(0, 0, 0, 0.008), 0 7px 0px rgba(0, 0, 0, 0.01);
+
+  .widget-heading {
+    margin-bottom: 25px;
+
+    h5 {
+      font-size: 17px;
+      display: block;
+      color: $m-color_3;
+      font-weight: 600;
+      margin-bottom: 0;
+    }
+  }
+
+  .widget-content {
+    font-size: 17px;
+
+    .browser-list {
+      display: flex;
+
+      &:not(:last-child) {
+        margin-bottom: 30px;
+      }
+    }
+
+    .w-icon {
+      display: inline-block;
+      padding: 10px 9px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-self: center;
+      height: 34px;
+      width: 34px;
+      margin-right: 12px;
+
+      svg {
+        display: block;
+        width: 15px;
+        height: 15px;
+      }
+    }
+
+    .browser-list {
+      &:nth-child(1) .w-icon {
+        background: $primary;
+      }
+
+      &:nth-child(2) .w-icon {
+        background: $danger;
+      }
+
+      &:nth-child(3) .w-icon {
+        background: $warning;
+      }
+
+      &:nth-child(1) .w-icon svg {
+        color: $l-primary;
+      }
+
+      &:nth-child(2) .w-icon svg {
+        color: $l-danger;
+      }
+
+      &:nth-child(3) .w-icon svg {
+        color: $l-warning;
+      }
+    }
+
+    .w-browser-details {
+      width: 100%;
+      align-self: center;
+    }
+
+    .w-browser-info {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 1px;
+
+      h6 {
+        font-size: 13px;
+        font-weight: 600;
+        margin-bottom: 0;
+        color: $m-color_6;
+      }
+
+      p {
+        font-size: 12px;
+        font-weight: 600;
+        margin-bottom: 0;
+        color: $m-color_6;
+      }
+    }
+
+    .w-browser-stats .progress {
+      margin-bottom: 0;
+      height: 22px;
+      padding: 4px;
+      border-radius: 20px;
+
+      .progress-bar {
+        position: relative;
+
+        &:before {
+          content: '';
+          height: 7px;
+          width: 7px;
+          background: $m-color_10;
+          position: absolute;
+          right: 3px;
+          border-radius: 50%;
+          top: 3.49px;
+        }
+      }
+    }
+  }
+}
