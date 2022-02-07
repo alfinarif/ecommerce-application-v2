@@ -190,7 +190,11 @@
                             <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
                                 <div class="icon">
                                     <i class="icon-shopping-cart"></i>
+                                        {% if request.user|notification_count %}
+                                            <span class="cart-count">{{ request.user|notification_count}}</span>
+                                        {% else %}
                                         <span class="cart-count">0</span>
+                                        {% endif %}
                                 </div>
                                 <p>Notification</p>
                             </a>
@@ -201,7 +205,7 @@
                                     <div class="product">
                                         <div class="product-cart-details">
                                             <h4 class="product-title">
-                                                <a href="product.html">{{notification.message}}</a>
+                                                <a href="{% url 'notification:is_read' notification.pk %}">{{notification.message}}</a>
                                             </h4>
                                         </div><!-- End .product-cart-details -->
                                         <a href="#" class="btn-remove" title="Remove Product"><i class="icon-close"></i></a>

@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'coupon',
     'payment',
     'notification',
+    'dashboard',
 
 ]
 
